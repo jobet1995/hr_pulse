@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "api",
     "home",
     "search",
+    "theme_plugin",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",

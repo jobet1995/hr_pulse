@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load theme_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-primary">Theme Plugin Demo</h1>
+            <p class="text-foreground">This page demonstrates the global theme plugin functionality.</p>
+            
+            <div class="card bg-card p-4 rounded-lg shadow mb-4">
+                <h2 class="text-secondary text-visible">Theme Toggle</h2>
+                <p class="text-visible">Click the button below to toggle between light and dark themes:</p>
+                {% theme_toggle_button %}
+            </div>
+            
+            <div class="card bg-card p-4 rounded-lg shadow mb-4">
+                <h2 class="text-secondary text-visible">Color Palette</h2>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-primary text-background text-visible">Primary</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-secondary text-background text-visible">Secondary</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-accent text-background text-visible">Accent</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-destructive text-background text-visible">Destructive</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-muted text-background text-visible">Muted</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-background border text-visible">Background</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-sidebar text-foreground text-visible">Sidebar</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="p-3 rounded bg-card border text-foreground text-visible">Card</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-card p-4 rounded-lg shadow mb-4">
+                <h2 class="text-secondary text-visible">Typography</h2>
+                <p class="text-xs text-visible">Extra Small Text</p>
+                <p class="text-sm text-visible">Small Text</p>
+                <p class="text-base text-visible">Base Text</p>
+                <p class="text-lg text-visible">Large Text</p>
+                <p class="text-xl text-visible">Extra Large Text</p>
+                <p class="text-2xl text-visible">2X Large Text</p>
+                <p class="text-3xl text-visible">3X Large Text</p>
+                <p class="text-4xl text-visible">4X Large Text</p>
+                
+                <p class="font-normal text-visible">Normal Weight</p>
+                <p class="font-medium text-visible">Medium Weight</p>
+                <p class="font-semibold text-visible">Semi Bold Weight</p>
+                <p class="font-bold text-visible">Bold Weight</p>
+            </div>
+            
+            <div class="card bg-card p-4 rounded-lg shadow mb-4">
+                <h2 class="text-secondary text-visible">Border Radius</h2>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="p-3 border rounded-sm text-visible">Small</div>
+                    <div class="p-3 border rounded text-visible">Base</div>
+                    <div class="p-3 border rounded-md text-visible">Medium</div>
+                    <div class="p-3 border rounded-lg text-visible">Large</div>
+                    <div class="p-3 border rounded-xl text-visible">XL</div>
+                    <div class="p-3 border rounded-full text-visible" style="width: 50px; text-align: center;">Full</div>
+                </div>
+            </div>
+            
+            <div class="card bg-card p-4 rounded-lg shadow">
+                <h2 class="text-secondary text-visible">Shadows</h2>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="p-3 bg-background shadow-sm text-visible">Small Shadow</div>
+                    <div class="p-3 bg-background shadow text-visible">Base Shadow</div>
+                    <div class="p-3 bg-background shadow-md text-visible">Medium Shadow</div>
+                    <div class="p-3 bg-background shadow-lg text-visible">Large Shadow</div>
+                    <div class="p-3 bg-background shadow-xl text-visible">XL Shadow</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

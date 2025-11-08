@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load theme_tags %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="text-xl font-bold text-primary">Theme Demo</div>
+    <div class="flex items-center space-x-4">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#benefits" class="nav-link">Benefits</a>
+      <a href="#stats" class="nav-link">Stats</a>
+      <button class="btn btn-primary" data-modal-target="demo-modal">Open Modal</button>
+      {% theme_toggle_button %}
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="py-20 bg-card">
+  <div class="container mx-auto text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-visible">Advanced Theme Plugin</h1>
+    <p class="text-xl text-muted mb-8 max-w-2xl mx-auto text-visible">
+      A professional, feature-rich theme system for Wagtail/Django with dark/light mode, 
+      dynamic content loading, and smooth animations.
+    </p>
+    <div class="flex justify-center gap-4">
+      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-secondary">Learn More</button>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-16" data-section-api="/api/features/">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-visible">Key Features</h2>
+    <!-- Dynamic content will be loaded here -->
+    <div class="text-center py-12">
+      <div class="spinner"></div>
+      <p>Loading features...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section id="benefits" class="py-16 bg-card" data-section-api="/api/benefits/">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-visible">Benefits</h2>
+    <!-- Dynamic content will be loaded here -->
+    <div class="text-center py-12">
+      <div class="spinner"></div>
+      <p>Loading benefits...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section id="stats" class="py-16" data-section-api="/api/stats/">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 text-visible">Statistics</h2>
+    <!-- Dynamic content will be loaded here -->
+    <div class="text-center py-12">
+      <div class="spinner"></div>
+      <p>Loading statistics...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-16 bg-card">
+  <div class="container mx-auto max-w-2xl">
+    <h2 class="text-3xl font-bold text-center mb-12 text-visible">Contact Us</h2>
+    <form data-ajax data-reset class="card">
+      <div class="mb-6">
+        <label for="name" class="block mb-2 font-medium text-visible">Name</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-2 font-medium text-visible">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-6">
+        <label for="message" class="block mb-2 font-medium text-visible">Message</label>
+        <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-footer border-t border-border">
+  <div class="container mx-auto text-center">
+    <p class="text-muted text-visible">© 2025 Theme Plugin. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+{% back_to_top_button %}
+
+<!-- Demo Modal -->
+<div id="demo-modal" class="modal" data-api="/api/modal-content/">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title text-visible">Demo Modal</h3>
+      <button data-modal-close class="btn btn-muted rounded-full p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Dynamic content will be loaded here -->
+      <div class="text-center py-8">
+        <div class="spinner"></div>
+        <p>Loading content...</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button data-modal-close class="btn btn-muted">Close</button>
+      <button class="btn btn-primary">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initialize theme toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('theme-toggle');
+    
+    // Toggle theme on button click
+    if (toggleButton && window.advancedThemeManager) {
+      toggleButton.addEventListener('click', function() {
+        window.advancedThemeManager.toggleTheme();
+      });
+    }
+  });
+</script>
+{% endblock %}
